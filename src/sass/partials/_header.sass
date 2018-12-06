@@ -16,13 +16,13 @@
 			justify-content: flex-start
 	&.scroll
 		position: fixed
-		background: rgba(3, 14, 43, .95)
-		padding: 5px
+		background: rgba(3, 14, 43, .99)
+		padding: 10px 0
 		transition: all .6s ease
 		.nav
 			opacity: 1
 	&.active
-		background: rgba(3, 14, 43, .95)
+		background: rgba(3, 14, 43, .99)
 		padding: 25px 0
 
 .logo
@@ -67,7 +67,7 @@
 		bottom: 0
 		height: calc( 100vh - 91px)
 		transform: translateX(100vw)
-		background: rgba(3, 14, 43, .95)
+		background: rgba(3, 14, 43, .99)
 		justify-content: flex-start
 		transition: all .5s ease
 		overflow: auto
@@ -91,7 +91,7 @@
 		+r(992)
 			display: block
 		&.active
-			.nav__bar
+			.bar
 				background: transparent
 				&::before
 					left: 0
@@ -121,6 +121,7 @@
 				top: 10px
 			&::after
 				top: -10px
+
 .menu
 	display: flex
 	flex-wrap: wrap
