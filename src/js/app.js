@@ -1,3 +1,18 @@
-import sayHello from './lib/sayHello.js';
+import $ from 'jquery';
 
-sayHello();
+$(window).scroll(function() {
+  if($(this).scrollTop() > 70) {
+    $('.header').addClass('scroll');
+  }
+  else {
+    $('.header').removeClass('scroll');
+  }
+});
+
+$(document).ready(function() {
+  $('.nav__button').click(function() {
+    $('.header').toggleClass('active');
+    $('.nav__button').toggleClass('active');
+    $('.nav').toggleClass('active');
+  });
+});

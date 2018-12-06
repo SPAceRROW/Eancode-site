@@ -1,0 +1,193 @@
+.header
+	position: absolute
+	left: 0
+	right: 0
+	top: 0
+	z-index: 1000
+	background: transparent
+	padding: 25px 0
+	transition: all .3s linear
+	&__wrapper
+		display: flex
+		+r(992)
+			justify-content: center
+			z-index: 1200
+		+r(576)
+			justify-content: flex-start
+	&.scroll
+		position: fixed
+		background: rgba(3, 14, 43, .95)
+		padding: 5px
+		transition: all .6s ease
+		.nav
+			opacity: 1
+	&.active
+		background: rgba(3, 14, 43, .95)
+		padding: 25px 0
+
+.logo
+	display: flex
+	align-items: center
+	justify-content: space-between
+	width: 215px
+	margin-right: 85px
+	z-index: 1100
+	+r(1200)
+		margin-right: 0
+	img
+		width: 41px
+		height: auto
+	&__text
+		display: flex
+		flex-direction: column
+	span
+		display: inline-block
+		line-height: 1em
+		font-family: $title-font
+		&.name
+			color: $white
+			font-weight: 800
+			font-size: 29px
+			letter-spacing: 0.1em
+			line-height: 1em
+		&.description
+			color: $silver
+			font-size: 12px
+.nav
+	display: flex
+	justify-content: space-between
+	align-items: center
+	width: 100%
+	+r(992)
+		flex-direction: column
+		position: absolute
+		left: 0
+		right: 0
+		top: 91px
+		bottom: 0
+		height: calc( 100vh - 91px)
+		transform: translateX(100vw)
+		background: rgba(3, 14, 43, .95)
+		justify-content: flex-start
+		transition: all .5s ease
+		overflow: auto
+		opacity: 0
+		&.active
+			transform: translateX(0)
+			transition: all .8s ease
+			overflow: auto
+			padding: 25px 0
+			opacity: 1
+	&__button
+		z-index: 1100
+		position: absolute
+		background: transparent
+		width: 40px
+		height: 40px
+		display: none
+		right: 5%
+		top: 50%
+		transform: translateY(-50%)
+		+r(992)
+			display: block
+		&.active
+			.nav__bar
+				background: transparent
+				&::before
+					left: 0
+					top: 0
+					transform: rotate(135deg)
+				&::after
+					right: 0
+					top: 0
+					transform: rotate(220deg)
+		.bar
+			position: absolute
+			width: 40px
+			height: 4px
+			background: $white
+			top: 50%
+			transform: translateY(-50%)
+			transition: all .3s ease
+			&::before, &::after
+				content: ''
+				position: absolute
+				width: 40px
+				height: 4px
+				left: 0
+				background: $white
+				transition: all .3s ease
+			&::before
+				top: 10px
+			&::after
+				top: -10px
+.menu
+	display: flex
+	flex-wrap: wrap
+	justify-content: center
+	max-width: 570px
+	+r(992)
+		display: block
+		margin-bottom: 30px
+		text-align: center
+	li
+		a
+			color: $white
+			line-height: 1em
+			position: relative
+			display: block
+			padding: 5px 0
+			margin: 0 15px
+			+r(992)
+				font-size: 20px
+				margin: 10px 15px
+			&::before
+				content: ''
+				position: absolute
+				transition: all .3s
+				bottom: 0
+				left: 0
+				width: 0
+				height: 2px
+				background-color: $crimson
+			&:hover, &:focus
+				&::before
+					width: 100%
+.callback
+	text-align: right
+	+r(992)
+		text-align: center
+	a
+		display: block
+		color: $white
+		&:first-child
+			font-weight: 600
+			font-size: 18px
+			position: relative
+			padding-bottom: 5px
+			span
+				font-weight: 700
+			&::after
+				content: ''
+				position: absolute
+				transition: all .3s
+				bottom: 0
+				left: 0
+				width: 0
+				height: 2px
+				background-color: $crimson
+			&:hover, &:focus
+				&::after
+					width: 100%
+			&::before
+				content: url("../img/icon-callback-white.svg")
+				width: 15px
+				height: 15px
+				position: absolute
+				left: -20px
+				top: 50%
+				transform: translateY(-50%)
+		&:last-child
+			text-decoration: underline
+			&:hover
+				text-decoration: none
